@@ -1,0 +1,10 @@
+<p>cart works!</p>
+
+<div *ngIf="items.length === 0">
+    <span>Empty cart!</span>
+</div>
+
+<div class="cart-item" *ngFor="let item of items">
+    <span>{{ item.name }}</span>
+    <span>{{ item.price | currency }}</span>
+</div>
