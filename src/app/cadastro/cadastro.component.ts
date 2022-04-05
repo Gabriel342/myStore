@@ -9,12 +9,15 @@ import { Produto } from 'src/models/produto.model';
 })
 export class CadastroComponent implements OnInit {
 
-  constructor(private service: CadastroService) { }
+  produtos: Produto[];
+
+  constructor(private service: CadastroService) { 
+    this.produtos = [];
+  }
 
   ngOnInit(): void {
-    this.service.listar().subscribe(produto =>{
+    this.service.listar().subscribe(produto => {
       console.log(produto);
     });
   }
-
 }

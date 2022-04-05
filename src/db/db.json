@@ -28,5 +28,19 @@
       "foto": "/assets/imagem3.jpg",
       "id": 4
     }
+  ],
+  "tipoEntrega": [
+      {
+        "tipo": "Overnight",
+        "preco": 25.99
+      },
+      {
+        "tipo": "2-Day",
+        "price": 9.99
+      },
+      {
+        "tipo": "Postal",
+        "price": 2.99
+      } 
   ]
 }

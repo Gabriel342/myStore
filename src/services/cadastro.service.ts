@@ -8,12 +8,28 @@ import { catchError, retry } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class CadastroService {
-  
+
+  URL = "http://localhost:3001/produtos";
+
   constructor(private http: HttpClient) { }
 
-  listar(){
-    return this.http.get<Produto>("http://localhost:3001/produtos/1");
+  listar(): Observable<Produto[]> {
+    return this.http.get<Produto[]>(this.URL);
   }
 
+  buscarPorID(id: number): Observable<Produto> {
+    return this.http.get<Produto>(this.URL + "/" + id);
+  }
 
+  incluir(produto: Produto): Observable<any> {
+    return this.http.post<any>(this.URL, produto);
+  }
+
+  atualizar(idAtualizar: number, produtoAtualizar: Produto): Observable<any> {
+    return this.http.put<any>(this.URL + "/" + idAtualizar, produtoAtualizar);
+  }
+
+  excluir(id: number): Observable<any> {
+    return this.http.delete<any>(this.URL + "/" + id);
+  }
 }
